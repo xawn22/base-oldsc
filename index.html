@@ -1,37 +1,592 @@
-<html>
-  <head>
-    <title>Script Vps Auto Installer</title>
-    <meta content="">
-    <style>
-
-      body {
-        background-image: url('dll/gambar.jpg');
-      }
-
-      header {
-        background: rgba(255,255,225, 0.5);
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>-Script Vps Auto Installer</h1>
-     <h1>-For OS Debian & Ubuntu</h1>
-      <br>
-     <h3><u><i>Port For AutoScript XRAY-SSH</u></i></h3>
-      <h5><i>SSH WS TLS & NON TLS : 80, 443</h5></i>
-     <h5><i>VMESS TLS & NON TLS : 8880, 8443</h5></i>
-    <h5><i>TROJAN-GO / WS : 2087</h5></i>
-    </header>
-  </body>
-</html>
 <!DOCTYPE html>
-<html>
- <head>
-  <title>Atribut BGColor di Tag Marquee</title>
- </head>
- <body>
-  <marquee bgcolor="red" width="955"> <h4>Berkarya Sesuai Kemampuan Sendiri :)</h4> </marquee>
- </body>
-</html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loketku – Isi Pulsa, Token Listrik & Bayar Tagihan</title>
+<meta name="description" content="Isi pulsa, beli token PLN, paket data, top up e-wallet, dan bayar tagihan dalam satu tempat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+<style>
+/* ============ 1. TOKEN WARNA & UKURAN (ubah di sini untuk ganti brand) ============ */
+:root{
+  --hijau:#0E5A4A;        /* warna utama */
+  --hijau-tua:#093D32;
+  --mint:#E3F4EC;         /* latar lembut */
+  --kuning:#FFC72C;       /* aksen tombol utama */
+  --kuning-tua:#F0B100;
+  --tinta:#16302B;        /* teks */
+  --abu:#5E7370;          /* teks sekunder */
+  --garis:#D5E4DD;
+  --putih:#FFFFFF;
+  --merah:#C23B2E;
+  --radius:14px;
+  --maks:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--tinta);background:var(--putih);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--kuning);outline-offset:2px}
+.wrap{max-width:var(--maks);margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.2;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800}
+section{padding:72px 0}
+
+/* ============ 2. HEADER ============ */
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--garis)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--hijau)}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--hijau);display:grid;place-items:center}
+nav ul{display:flex;gap:28px;list-style:none;font-weight:600;font-size:.95rem;color:var(--abu)}
+nav a:hover{color:var(--hijau)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;font-weight:700;cursor:pointer;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.98)}
+.btn-hijau{background:var(--hijau);color:var(--putih)}
+.btn-hijau:hover{background:var(--hijau-tua)}
+.btn-kuning{background:var(--kuning);color:var(--hijau-tua)}
+.btn-kuning:hover{background:var(--kuning-tua)}
+.btn-garis{background:transparent;border:1.5px solid var(--hijau);color:var(--hijau)}
+.btn-blok{width:100%;padding:15px}
+.menu-toggle{display:none;background:none;border:0;padding:8px;cursor:pointer}
+
+/* ============ 3. HERO + PANEL TRANSAKSI ============ */
+.hero{background:var(--hijau);color:var(--putih);padding:56px 0 80px;position:relative;overflow:hidden}
+.hero::after{ /* pola titik halus */
+  content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
+  background-image:radial-gradient(var(--putih) 1.2px,transparent 1.2px);background-size:22px 22px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero h1{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:800}
+.hero p.lead{margin-top:18px;font-size:1.08rem;color:#CBE7DC;max-width:46ch}
+.hero-aksi{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero .btn-garis{border-color:#7FB8A6;color:var(--putih)}
+.hero .btn-garis:hover{background:rgba(255,255,255,.1)}
+.bukti{display:flex;gap:28px;margin-top:36px;font-size:.9rem;color:#CBE7DC}
+.bukti strong{display:block;font-size:1.35rem;color:var(--putih)}
+
+.panel{background:var(--putih);color:var(--tinta);border-radius:20px;padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+.tabs{display:flex;gap:6px;background:var(--mint);padding:5px;border-radius:12px;overflow-x:auto}
+.tab{flex:1;white-space:nowrap;border:0;background:transparent;padding:10px 12px;border-radius:9px;font-weight:600;font-size:.88rem;color:var(--abu);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--putih);color:var(--hijau);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.field{margin-top:18px}
+.field label{display:block;font-weight:600;font-size:.88rem;margin-bottom:6px}
+.input-wrap{position:relative}
+.field input,.field select{width:100%;padding:14px 16px;border:1.5px solid var(--garis);border-radius:var(--radius);background:var(--putih);font-size:1rem}
+.field input:focus,.field select:focus{border-color:var(--hijau);outline:none;box-shadow:0 0 0 3px rgba(14,90,74,.15)}
+.provider{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:.78rem;font-weight:700;background:var(--mint);color:var(--hijau);padding:4px 10px;border-radius:999px}
+.provider:empty{display:none}
+.galat{color:var(--merah);font-size:.84rem;margin-top:6px;min-height:1.2em}
+.nominal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.chip{border:1.5px solid var(--garis);background:var(--putih);border-radius:12px;padding:12px 6px;font-weight:700;cursor:pointer;text-align:center;line-height:1.3}
+.chip small{display:block;font-weight:500;color:var(--abu);font-size:.74rem}
+.chip:hover{border-color:var(--hijau)}
+.chip[aria-pressed="true"]{border-color:var(--hijau);background:var(--mint);box-shadow:inset 0 0 0 1px var(--hijau)}
+.ringkas{margin-top:18px;padding:14px 16px;background:var(--mint);border-radius:var(--radius);font-size:.92rem}
+.ringkas div{display:flex;justify-content:space-between;padding:2px 0}
+.ringkas .total{margin-top:6px;padding-top:8px;border-top:1px dashed #A9CDBE;font-weight:800;font-size:1.05rem;color:var(--hijau)}
+.panel .btn{margin-top:16px}
+
+/* ============ 4. LAYANAN ============ */
+.judul{max-width:560px;margin-bottom:36px}
+.judul p{color:var(--abu);margin-top:10px}
+.layanan{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.tile{display:flex;flex-direction:column;gap:14px;text-align:left;border:1.5px solid var(--garis);background:var(--putih);border-radius:var(--radius);padding:20px;cursor:pointer;transition:border-color .15s,background .15s}
+.tile:hover{border-color:var(--hijau);background:var(--mint)}
+.ikon{width:46px;height:46px;border-radius:12px;background:var(--mint);display:grid;place-items:center;color:var(--hijau)}
+.tile:hover .ikon{background:var(--putih)}
+.tile b{font-size:1rem}
+.tile span{font-size:.86rem;color:var(--abu);line-height:1.45}
+
+/* ============ 5. DAFTAR HARGA ============ */
+.harga{background:var(--mint)}
+.harga-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.tabel{background:var(--putih);border-radius:var(--radius);padding:8px 22px 14px}
+.tabel h3{font-size:1.05rem;padding:16px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+td,th{padding:11px 0;border-bottom:1px solid var(--garis);text-align:left}
+th{font-weight:600;color:var(--abu);font-size:.82rem}
+td:last-child,th:last-child{text-align:right;font-weight:700}
+tr:last-child td{border-bottom:0}
+.catatan{margin-top:18px;font-size:.86rem;color:var(--abu)}
+
+/* ============ 6. CARA BAYAR ============ */
+.langkah{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:l}
+.langkah li{list-style:none;counter-increment:l;position:relative;padding-top:56px}
+.langkah li::before{
+  content:counter(l);position:absolute;top:0;left:0;width:42px;height:42px;border-radius:50%;
+  background:var(--kuning);color:var(--hijau-tua);font-weight:800;display:grid;place-items:center}
+.langkah h3{font-size:1.1rem;margin-bottom:6px}
+.langkah p{color:var(--abu);font-size:.95rem}
+.metode{margin-top:44px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.metode span.l{font-weight:700;margin-right:6px}
+.pill{border:1.5px solid var(--garis);border-radius:999px;padding:7px 16px;font-weight:600;font-size:.88rem;color:var(--abu)}
+
+/* ============ 7. FAQ ============ */
+.faq{background:var(--mint)}
+.faq-list{max-width:760px}
+details{background:var(--putih);border-radius:var(--radius);margin-bottom:10px;padding:0 20px}
+summary{cursor:pointer;font-weight:700;padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--hijau);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:var(--abu)}
+
+/* ============ 8. CTA & FOOTER ============ */
+.cta{background:var(--hijau);color:var(--putih);text-align:center;padding:64px 0}
+.cta p{color:#CBE7DC;margin:10px auto 26px;max-width:46ch}
+footer{background:var(--hijau-tua);color:#A9CDBE;padding:48px 0 28px;font-size:.92rem}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+footer h4{color:var(--putih);margin-bottom:12px;font-size:.95rem}
+footer li{list-style:none;margin-bottom:8px}
+footer a:hover{color:var(--putih)}
+.hak{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.84rem}
+
+/* Dialog konfirmasi */
+dialog{border:0;border-radius:20px;padding:26px;width:min(420px,92vw);margin:auto}
+dialog::backdrop{background:rgba(9,61,50,.55)}
+dialog h3{font-size:1.2rem;margin-bottom:14px}
+.dlg-baris{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--garis);font-size:.95rem}
+.dlg-baris:last-of-type{border:0;font-weight:800;color:var(--hijau)}
+.dlg-aksi{display:flex;gap:10px;margin-top:18px}
+.dlg-aksi .btn{flex:1}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,120%);background:var(--hijau-tua);color:var(--putih);padding:14px 22px;border-radius:12px;font-weight:600;transition:transform .25s;z-index:50}
+.toast.tampil{transform:translate(-50%,0)}
+
+/* ============ 9. RESPONSIF ============ */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .layanan{grid-template-columns:repeat(2,1fr)}
+  .harga-grid,.langkah{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--putih);border-bottom:1px solid var(--garis);padding:16px 20px}
+  nav.buka{display:block}
+  nav ul{flex-direction:column;gap:14px}
+  .menu-toggle{display:block}
+  .bar .btn-masuk{display:none}
+  section{padding:56px 0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap bar">
+    <a href="#" class="logo" aria-label="Loketku beranda">
+      <span class="logo-mark">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC72C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+      </span>
+      Loketku
+    </a>
+    <nav id="nav" aria-label="Menu utama">
+      <ul>
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#harga">Daftar harga</a></li>
+        <li><a href="#cara">Cara bayar</a></li>
+        <li><a href="#bantuan">Bantuan</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="btn btn-hijau btn-masuk">Masuk</a>
+    <button class="menu-toggle" id="menuBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-top:56px">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Isi pulsa, bayar listrik, beres dalam semenit.</h1>
+      <p class="lead">Semua kebutuhan harian dari pulsa sampai tagihan PDAM ada di satu tempat. Harga jelas, saldo langsung masuk, buka 24 jam.</p>
+      <div class="hero-aksi">
+        <a href="#layanan" class="btn btn-kuning">Lihat semua layanan</a>
+        <a href="#harga" class="btn btn-garis">Cek daftar harga</a>
+      </div>
+      <div class="bukti">
+        <div><strong>24 jam</strong>Layanan aktif</div>
+        <div><strong>&lt; 1 menit</strong>Rata-rata proses</div>
+        <div><strong>Rp1.000</strong>Mulai dari</div>
+      </div>
+    </div>
+
+    <!-- PANEL TRANSAKSI -->
+    <div class="panel" id="panel">
+      <div class="tabs" role="tablist" aria-label="Jenis transaksi">
+        <button class="tab" role="tab" data-tab="pulsa" aria-selected="true">Pulsa</button>
+        <button class="tab" role="tab" data-tab="data" aria-selected="false">Paket data</button>
+        <button class="tab" role="tab" data-tab="pln" aria-selected="false">Token PLN</button>
+        <button class="tab" role="tab" data-tab="ewallet" aria-selected="false">E-wallet</button>
+        <button class="tab" role="tab" data-tab="tagihan" aria-selected="false">Tagihan</button>
+      </div>
+
+      <div class="field" id="fieldJenis" hidden>
+        <label for="jenis">Jenis tagihan</label>
+        <select id="jenis">
+          <option>PDAM</option>
+          <option>BPJS Kesehatan</option>
+          <option>Internet & TV kabel</option>
+          <option>Cicilan</option>
+        </select>
+      </div>
+
+      <div class="field" id="fieldEwallet" hidden>
+        <label for="ewallet">Pilih e-wallet</label>
+        <select id="ewallet">
+          <option>GoPay</option>
+          <option>OVO</option>
+          <option>DANA</option>
+          <option>ShopeePay</option>
+          <option>LinkAja</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="nomor" id="labelNomor">Nomor HP</label>
+        <div class="input-wrap">
+          <input id="nomor" type="tel" inputmode="numeric" autocomplete="off" placeholder="08xxxxxxxxxx">
+          <span class="provider" id="provider"></span>
+        </div>
+        <div class="galat" id="galat" role="alert"></div>
+      </div>
+
+      <div class="field" id="fieldNominal">
+        <label id="labelNominal">Pilih nominal</label>
+        <div class="nominal" id="nominal" role="group" aria-labelledby="labelNominal"></div>
+      </div>
+
+      <div class="ringkas" id="ringkas">
+        <div><span>Harga</span><span id="rHarga">Rp0</span></div>
+        <div><span>Biaya layanan</span><span id="rAdmin">Rp0</span></div>
+        <div class="total"><span>Total bayar</span><span id="rTotal">Rp0</span></div>
+      </div>
+
+      <button class="btn btn-kuning btn-blok" id="btnLanjut">Lanjut bayar</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAYANAN ============ -->
+<section id="layanan">
+  <div class="wrap">
+    <div class="judul">
+      <h2>Satu tempat untuk semua pembayaran rutin</h2>
+      <p>Pilih layanan, masukkan nomor, bayar. Tidak perlu antre atau install banyak aplikasi.</p>
+    </div>
+    <div class="layanan">
+      <button class="tile" data-go="pulsa">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span>
+        <b>Pulsa</b><span>Semua operator, masuk dalam hitungan detik.</span>
+      </button>
+      <button class="tile" data-go="data">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 20h.01M2 9a14 14 0 0 1 20 0"/></svg></span>
+        <b>Paket data</b><span>Kuota harian, bulanan, dan paket malam.</span>
+      </button>
+      <button class="tile" data-go="pln">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <b>Token listrik</b><span>Beli token PLN prabayar 24 jam.</span>
+      </button>
+      <button class="tile" data-go="ewallet">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/></svg></span>
+        <b>Top up e-wallet</b><span>GoPay, OVO, DANA, ShopeePay, LinkAja.</span>
+      </button>
+      <button class="tile" data-go="tagihan" data-jenis="PDAM">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>
+        <b>PDAM</b><span>Cek dan bayar tagihan air bulanan.</span>
+      </button>
+      <button class="tile" data-go="tagihan" data-jenis="BPJS Kesehatan">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></svg></span>
+        <b>BPJS Kesehatan</b><span>Bayar iuran untuk seluruh anggota keluarga.</span>
+      </button>
+      <button class="tile" data-go="tagihan" data-jenis="Internet & TV kabel">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <b>Internet & TV</b><span>IndiHome, MyRepublic, dan lainnya.</span>
+      </button>
+      <button class="tile" data-go="tagihan" data-jenis="Cicilan">
+        <span class="ikon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span>
+        <b>Cicilan</b><span>Multifinance dan paylater.</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DAFTAR HARGA ============ -->
+<section class="harga" id="harga">
+  <div class="wrap">
+    <div class="judul">
+      <h2>Daftar harga</h2>
+      <p>Harga sudah termasuk biaya layanan. Tidak ada biaya tersembunyi.</p>
+    </div>
+    <div class="harga-grid">
+      <div class="tabel">
+        <h3>Pulsa reguler</h3>
+        <table>
+          <thead><tr><th>Nominal</th><th>Harga</th></tr></thead>
+          <tbody>
+            <tr><td>Pulsa 5.000</td><td>Rp6.500</td></tr>
+            <tr><td>Pulsa 10.000</td><td>Rp11.500</td></tr>
+            <tr><td>Pulsa 25.000</td><td>Rp26.000</td></tr>
+            <tr><td>Pulsa 50.000</td><td>Rp50.800</td></tr>
+            <tr><td>Pulsa 100.000</td><td>Rp100.500</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tabel">
+        <h3>Token PLN</h3>
+        <table>
+          <thead><tr><th>Nominal</th><th>Harga</th></tr></thead>
+          <tbody>
+            <tr><td>Token 20.000</td><td>Rp22.500</td></tr>
+            <tr><td>Token 50.000</td><td>Rp52.500</td></tr>
+            <tr><td>Token 100.000</td><td>Rp102.500</td></tr>
+            <tr><td>Token 200.000</td><td>Rp202.500</td></tr>
+            <tr><td>Token 500.000</td><td>Rp502.500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="catatan">Contoh harga. Ganti dengan harga dari supplier Anda atau ambil otomatis lewat API.</p>
+  </div>
+</section>
+
+<!-- ============ CARA BAYAR ============ -->
+<section id="cara">
+  <div class="wrap">
+    <div class="judul"><h2>Cara bayar</h2></div>
+    <ol class="langkah">
+      <li><h3>Pilih layanan</h3><p>Pilih pulsa, token listrik, e-wallet, atau tagihan, lalu masukkan nomor tujuan.</p></li>
+      <li><h3>Pilih nominal dan metode bayar</h3><p>Periksa total pembayaran, lalu pilih QRIS, transfer bank, atau e-wallet.</p></li>
+      <li><h3>Selesai</h3><p>Produk masuk otomatis. Bukti transaksi dikirim ke WhatsApp atau email Anda.</p></li>
+    </ol>
+    <div class="metode">
+      <span class="l">Metode pembayaran:</span>
+      <span class="pill">QRIS</span><span class="pill">Virtual account</span><span class="pill">GoPay</span><span class="pill">OVO</span><span class="pill">DANA</span><span class="pill">Minimarket</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="bantuan">
+  <div class="wrap">
+    <div class="judul"><h2>Pertanyaan yang sering diajukan</h2></div>
+    <div class="faq-list">
+      <details><summary>Berapa lama pulsa atau token masuk?</summary><p>Biasanya kurang dari satu menit. Jika gangguan dari operator atau PLN, proses bisa sampai 15 menit.</p></details>
+      <details><summary>Bagaimana kalau saya salah memasukkan nomor?</summary><p>Periksa nomor sebelum membayar. Transaksi yang sudah berhasil tidak bisa dibatalkan, tetapi hubungi kami secepatnya dan kami bantu cek.</p></details>
+      <details><summary>Token listrik tidak muncul, apa yang harus dilakukan?</summary><p>Buka riwayat transaksi dan salin nomor token 20 digit. Jika belum ada, hubungi layanan pelanggan dengan menyertakan ID transaksi.</p></details>
+      <details><summary>Apakah ada biaya tambahan?</summary><p>Total yang tampil di halaman pembayaran sudah final. Tidak ada biaya lain setelahnya.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Mau jadi agen Loketku?</h2>
+    <p>Jual pulsa dan token ke tetangga atau pelanggan Anda, dapatkan selisih harga di setiap transaksi.</p>
+    <a href="#" class="btn btn-kuning">Daftar jadi agen</a>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:12px">Loketku</div>
+        <p>Pembayaran digital harian yang cepat dan jelas.</p>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <ul><li><a href="#layanan">Pulsa & data</a></li><li><a href="#layanan">Token PLN</a></li><li><a href="#layanan">E-wallet</a></li><li><a href="#layanan">Tagihan</a></li></ul>
+      </div>
+      <div>
+        <h4>Bantuan</h4>
+        <ul><li><a href="#bantuan">FAQ</a></li><li><a href="#cara">Cara bayar</a></li><li><a href="#">Syarat & ketentuan</a></li><li><a href="#">Kebijakan privasi</a></li></ul>
+      </div>
+      <div>
+        <h4>Hubungi kami</h4>
+        <ul><li>WhatsApp: 0812-0000-0000</li><li>cs@loketku.id</li><li>Senin–Minggu, 24 jam</li></ul>
+      </div>
+    </div>
+    <p class="hak">© 2026 Loketku. Semua hak dilindungi.</p>
+  </div>
+</footer>
+
+<!-- ============ DIALOG KONFIRMASI ============ -->
+<dialog id="dlg">
+  <h3>Periksa pesanan Anda</h3>
+  <div id="dlgIsi"></div>
+  <div class="dlg-aksi">
+    <button class="btn btn-garis" id="dlgBatal">Ubah</button>
+    <button class="btn btn-hijau" id="dlgBayar">Bayar sekarang</button>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============ DATA PRODUK (ganti / sambungkan ke API supplier) ============ */
+const rupiah = n => "Rp" + n.toLocaleString("id-ID");
+
+const PRODUK = {
+  pulsa: {
+    label: "Nomor HP", placeholder: "08xxxxxxxxxx", admin: 1000,
+    items: [5000,10000,20000,25000,50000,100000].map(n => ({nama: rupiah(n), harga: n}))
+  },
+  data: {
+    label: "Nomor HP", placeholder: "08xxxxxxxxxx", admin: 1000,
+    items: [
+      {nama:"3 GB", ket:"7 hari", harga:18000},
+      {nama:"8 GB", ket:"30 hari", harga:45000},
+      {nama:"15 GB", ket:"30 hari", harga:70000},
+      {nama:"25 GB", ket:"30 hari", harga:95000},
+      {nama:"40 GB", ket:"30 hari", harga:125000},
+      {nama:"Malam 20 GB", ket:"30 hari", harga:55000}
+    ]
+  },
+  pln: {
+    label: "ID pelanggan / No. meter", placeholder: "11 atau 12 digit", admin: 2500,
+    items: [20000,50000,100000,200000,500000,1000000].map(n => ({nama: rupiah(n), harga: n}))
+  },
+  ewallet: {
+    label: "Nomor e-wallet", placeholder: "08xxxxxxxxxx", admin: 1000,
+    items: [20000,50000,100000,200000,300000,500000].map(n => ({nama: rupiah(n), harga: n}))
+  },
+  tagihan: {
+    label: "ID pelanggan / Nomor tagihan", placeholder: "Masukkan nomor tagihan", admin: 2500,
+    items: null /* tagihan: nominal didapat setelah cek tagihan */
+  }
+};
+
+const PREFIX = { /* deteksi operator dari 4 digit awal */
+  Telkomsel:["0811","0812","0813","0821","0822","0823","0851","0852","0853"],
+  Indosat:["0814","0815","0816","0855","0856","0857","0858"],
+  XL:["0817","0818","0819","0859","0877","0878"],
+  Axis:["0831","0832","0833","0838"],
+  Tri:["0895","0896","0897","0898","0899"],
+  Smartfren:["0881","0882","0883","0884","0885","0886","0887","0888","0889"]
+};
+
+/* ============ STATE ============ */
+let tab = "pulsa", pilih = null, tagihanHarga = 0;
+const $ = id => document.getElementById(id);
+
+/* ============ RENDER ============ */
+function renderTab(){
+  const p = PRODUK[tab];
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", t.dataset.tab === tab));
+  $("labelNomor").textContent = p.label;
+  $("nomor").placeholder = p.placeholder;
+  $("fieldEwallet").hidden = tab !== "ewallet";
+  $("fieldJenis").hidden = tab !== "tagihan";
+  $("fieldNominal").hidden = tab === "tagihan";
+  $("btnLanjut").textContent = tab === "tagihan" ? "Cek tagihan" : "Lanjut bayar";
+  $("labelNominal").textContent = tab === "data" ? "Pilih paket" : "Pilih nominal";
+  pilih = null; tagihanHarga = 0;
+  $("galat").textContent = "";
+
+  const box = $("nominal");
+  box.innerHTML = "";
+  (p.items || []).forEach((it, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed","false");
+    b.innerHTML = it.nama + (it.ket ? `<small>${it.ket} · ${rupiah(it.harga)}</small>` : "");
+    b.onclick = () => { pilih = i; box.querySelectorAll(".chip").forEach((c,j)=>c.setAttribute("aria-pressed", j===i)); hitung(); };
+    box.appendChild(b);
+  });
+  deteksiProvider(); hitung();
+}
+
+function hitung(){
+  const p = PRODUK[tab];
+  const harga = tab === "tagihan" ? tagihanHarga : (pilih !== null ? p.items[pilih].harga : 0);
+  const admin = harga ? p.admin : 0;
+  $("rHarga").textContent = rupiah(harga);
+  $("rAdmin").textContent = rupiah(admin);
+  $("rTotal").textContent = rupiah(harga + admin);
+}
+
+function deteksiProvider(){
+  const v = $("nomor").value.replace(/\D/g,"");
+  let nama = "";
+  if (tab === "pulsa" || tab === "data"){
+    for (const [op, list] of Object.entries(PREFIX)) if (list.includes(v.slice(0,4))) nama = op;
+  }
+  $("provider").textContent = nama;
+}
+
+/* ============ VALIDASI ============ */
+function validasi(){
+  const v = $("nomor").value.replace(/\D/g,"");
+  let msg = "";
+  if (!v) msg = "Masukkan nomor tujuan.";
+  else if (["pulsa","data","ewallet"].includes(tab) && !/^08\d{8,11}$/.test(v)) msg = "Nomor HP harus diawali 08 dan berjumlah 10–13 digit.";
+  else if (tab === "pln" && !/^\d{11,12}$/.test(v)) msg = "ID pelanggan PLN terdiri dari 11 atau 12 digit.";
+  else if (tab !== "tagihan" && pilih === null) msg = "Pilih nominal terlebih dahulu.";
+  $("galat").textContent = msg;
+  return !msg;
+}
+
+/* ============ EVENT ============ */
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => { tab = t.dataset.tab; renderTab(); });
+$("nomor").addEventListener("input", e => { e.target.value = e.target.value.replace(/[^\d]/g,""); deteksiProvider(); $("galat").textContent=""; });
+
+document.querySelectorAll(".tile").forEach(t => t.onclick = () => {
+  tab = t.dataset.go; renderTab();
+  if (t.dataset.jenis) $("jenis").value = t.dataset.jenis;
+  $("panel").scrollIntoView({behavior:"smooth", block:"center"});
+  $("nomor").focus({preventScroll:true});
+});
+
+$("btnLanjut").onclick = () => {
+  if (!validasi()) return;
+  if (tab === "tagihan" && !tagihanHarga){
+    /* DEMO: ganti dengan panggilan API cek tagihan */
+    tagihanHarga = 87500; hitung();
+    $("btnLanjut").textContent = "Lanjut bayar";
+    toast("Tagihan ditemukan: " + rupiah(tagihanHarga));
+    return;
+  }
+  const p = PRODUK[tab];
+  const it = tab === "tagihan" ? {nama: $("jenis").value} : p.items[pilih];
+  const harga = tab === "tagihan" ? tagihanHarga : it.harga;
+  const baris = [
+    ["Layanan", tab === "ewallet" ? "Top up " + $("ewallet").value : (tab === "tagihan" ? $("jenis").value : $("labelNomor").textContent && document.querySelector(".tab[aria-selected=true]").textContent)],
+    ["Tujuan", $("nomor").value],
+    ["Produk", it.nama],
+    ["Biaya layanan", rupiah(p.admin)],
+    ["Total bayar", rupiah(harga + p.admin)]
+  ];
+  $("dlgIsi").innerHTML = baris.map(b => `<div class="dlg-baris"><span>${b[0]}</span><span>${b[1]}</span></div>`).join("");
+  $("dlg").showModal();
+};
+$("dlgBatal").onclick = () => $("dlg").close();
+$("dlgBayar").onclick = () => {
+  $("dlg").close();
+  /* TODO: kirim pesanan ke backend / payment gateway di sini */
+  toast("Pesanan dibuat. Lanjutkan ke pembayaran (demo).");
+};
+
+$("menuBtn").onclick = () => {
+  const o = $("nav").classList.toggle("buka");
+  $("menuBtn").setAttribute("aria-expanded", o);
+};
+document.querySelectorAll("nav a").forEach(a => a.onclick = () => $("nav").classList.remove("buka"));
+
+let tmr;
+function toast(t){
+  const el = $("toast"); el.textContent = t; el.classList.add("tampil");
+  clearTimeout(tmr); tmr = setTimeout(() => el.classList.remove("tampil"), 3000);
+}
+
+renderTab();
+</script>
+</body>
+</html>
